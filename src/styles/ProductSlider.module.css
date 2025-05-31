@@ -1,5 +1,7 @@
 .sliderSection {
   padding: 60px 0;
+  background-color: #111;
+  color: white;
 }
 
 .sliderHeader {
@@ -7,57 +9,71 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .sliderTitle {
   font-size: 24px;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: none;
+  color: white;
 }
 
 .sliderControls {
   display: flex;
-  gap: 15px;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .sliderArrow {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--gray-light);
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  background-color: transparent;
+  border: 1px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: var(--transition);
+  color: white;
 }
 
 .sliderArrow:hover {
-  background-color: var(--accent);
-  color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 .productCard {
   position: relative;
   padding: 0 10px;
   margin-bottom: 20px;
+  background-color: white;
+  color: #333;
 }
 
 .productImageContainer {
   position: relative;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 0;
 }
 
 .productImage {
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 1/1.5;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
 .productCard:hover .productImage {
   transform: scale(1.05);
+}
+
+.productInfo {
+  padding: 15px;
+  background-color: white;
 }
 
 .productTags {
@@ -89,22 +105,24 @@
 .productBrand {
   font-size: 12px;
   font-weight: 500;
-  color: var(--gray-dark);
+  color: #666;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
 
 .productTitle {
   font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 10px;
-  min-height: 42px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  min-height: auto;
+  color: #333;
 }
 
 .productPrice {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0;
+  color: #333;
 }
 
 .addToCartButton {

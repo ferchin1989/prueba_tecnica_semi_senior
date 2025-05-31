@@ -7,6 +7,11 @@ import { Product } from '../../types';
 import { getProducts } from '../../services/productService';
 import useCartStore from '../../store/useCartStore';
 
+// Importar imágenes locales
+import mujer1 from '../../assets/images/mujeres/mujer 1.webp';
+import mujer2 from '../../assets/images/mujeres/mujer 2.webp';
+import mujer3 from '../../assets/images/mujeres/mujer 3.webp';
+
 /**
  * Componente ProductSlider que muestra un carrusel de productos
  * Permite añadir productos al carrito
@@ -35,20 +40,26 @@ const ProductSlider: React.FC = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3.5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
     responsive: [
       {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 2,
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1.2,
+          slidesToShow: 1,
         }
       }
     ]
@@ -85,7 +96,7 @@ const ProductSlider: React.FC = () => {
     <section className={styles.sliderSection}>
       <div className="container">
         <div className={styles.sliderHeader}>
-          <h2 className={styles.sliderTitle}>Productos destacados</h2>
+          <h2 className={styles.sliderTitle}>Productos GLEE</h2>
           <div className={styles.sliderControls}>
             <button 
               className={styles.sliderArrow} 
@@ -109,38 +120,65 @@ const ProductSlider: React.FC = () => {
         </div>
 
         <Slider ref={sliderRef} {...settings}>
-          {products.map((product) => (
-            <div key={product.id} className={styles.productCard}>
-              <div className={styles.productImageContainer}>
-                <img 
-                  src={product.image} 
-                  alt={product.title} 
-                  className={styles.productImage}
-                />
-                {product.tags && product.tags.length > 0 && (
-                  <div className={styles.productTags}>
-                    {product.tags.map((tag, index) => (
-                      <span 
-                        key={index} 
-                        className={`${styles.productTag} ${tag.toLowerCase() === 'descuento' ? styles.discount : ''} ${tag.toLowerCase() === 'nuevo' ? styles.new : ''}`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-              <div className={styles.productBrand}>{product.brand}</div>
-              <h3 className={styles.productTitle}>{product.title}</h3>
-              <div className={styles.productPrice}>{formatPrice(product.price)}</div>
-              <button 
-                className={styles.addToCartButton}
-                onClick={() => handleAddToCart(product)}
-              >
-                Añadir al carrito
-              </button>
+          <div className={styles.productCard}>
+            <div className={styles.productImageContainer}>
+              <img 
+                src={mujer1} 
+                alt="Top Mat" 
+                className={styles.productImage}
+              />
             </div>
-          ))}
+            <div className={styles.productInfo}>
+              <div className={styles.productBrand}>GLEE</div>
+              <h3 className={styles.productTitle}>Top Mat</h3>
+              <div className={styles.productPrice}>$199.990</div>
+            </div>
+          </div>
+          
+          <div className={styles.productCard}>
+            <div className={styles.productImageContainer}>
+              <img 
+                src={mujer2} 
+                alt="Legging Ankle" 
+                className={styles.productImage}
+              />
+            </div>
+            <div className={styles.productInfo}>
+              <div className={styles.productBrand}>GLEE</div>
+              <h3 className={styles.productTitle}>Legging Ankle</h3>
+              <div className={styles.productPrice}>$249.990</div>
+            </div>
+          </div>
+          
+          <div className={styles.productCard}>
+            <div className={styles.productImageContainer}>
+              <img 
+                src={mujer3} 
+                alt="Short Dream" 
+                className={styles.productImage}
+              />
+            </div>
+            <div className={styles.productInfo}>
+              <div className={styles.productBrand}>GLEE</div>
+              <h3 className={styles.productTitle}>Short Dream</h3>
+              <div className={styles.productPrice}>$179.990</div>
+            </div>
+          </div>
+          
+          <div className={styles.productCard}>
+            <div className={styles.productImageContainer}>
+              <img 
+                src={mujer1} 
+                alt="Legging Ankle Active" 
+                className={styles.productImage}
+              />
+            </div>
+            <div className={styles.productInfo}>
+              <div className={styles.productBrand}>GLEE</div>
+              <h3 className={styles.productTitle}>Legging Ankle Active</h3>
+              <div className={styles.productPrice}>$199.990</div>
+            </div>
+          </div>
         </Slider>
       </div>
     </section>
