@@ -1,0 +1,147 @@
+.sliderSection {
+  padding: 60px 0;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sliderTitle {
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sliderControls {
+  display: flex;
+  gap: 15px;
+}
+
+.sliderArrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--gray-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sliderArrow:hover {
+  background-color: var(--accent);
+  color: var(--secondary);
+}
+
+.productCard {
+  position: relative;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.productImageContainer {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.productImage {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+.productTags {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.productTag {
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+.productTag.discount {
+  background-color: var(--error);
+}
+
+.productTag.new {
+  background-color: var(--success);
+}
+
+.productBrand {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-dark);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.productTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  min-height: 42px;
+}
+
+.productPrice {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.addToCartButton {
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--secondary);
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.addToCartButton:hover {
+  background-color: var(--accent);
+}
+
+/* Estilos para el slider */
+:global .slick-track {
+  display: flex;
+  gap: 0;
+}
+
+:global .slick-slide {
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .sliderSection {
+    padding: 40px 0;
+  }
+  
+  .sliderTitle {
+    font-size: 20px;
+  }
+  
+  .productTitle {
+    min-height: auto;
+  }
+}

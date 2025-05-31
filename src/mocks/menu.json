@@ -1,0 +1,85 @@
+{
+  "menuItems": [
+    {
+      "id": 1,
+      "name": "Hombre",
+      "url": "/hombre",
+      "submenus": [
+        {
+          "id": 101,
+          "name": "Ropa",
+          "url": "/hombre/ropa",
+          "items": [
+            { "id": 1001, "name": "Camisetas", "url": "/hombre/ropa/camisetas" },
+            { "id": 1002, "name": "Pantalones", "url": "/hombre/ropa/pantalones" },
+            { "id": 1003, "name": "Chaquetas", "url": "/hombre/ropa/chaquetas" },
+            { "id": 1004, "name": "Sudaderas", "url": "/hombre/ropa/sudaderas" },
+            { "id": 1005, "name": "Shorts", "url": "/hombre/ropa/shorts" }
+          ]
+        },
+        {
+          "id": 102,
+          "name": "Calzado",
+          "url": "/hombre/calzado",
+          "items": [
+            { "id": 1006, "name": "Zapatillas", "url": "/hombre/calzado/zapatillas" },
+            { "id": 1007, "name": "Botas", "url": "/hombre/calzado/botas" },
+            { "id": 1008, "name": "Sandalias", "url": "/hombre/calzado/sandalias" }
+          ]
+        },
+        {
+          "id": 103,
+          "name": "Accesorios",
+          "url": "/hombre/accesorios",
+          "items": [
+            { "id": 1009, "name": "Gorras", "url": "/hombre/accesorios/gorras" },
+            { "id": 1010, "name": "Cinturones", "url": "/hombre/accesorios/cinturones" },
+            { "id": 1011, "name": "Relojes", "url": "/hombre/accesorios/relojes" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Mujer",
+      "url": "/mujer",
+      "submenus": [
+        {
+          "id": 201,
+          "name": "Ropa",
+          "url": "/mujer/ropa",
+          "items": [
+            { "id": 2001, "name": "Blusas", "url": "/mujer/ropa/blusas" },
+            { "id": 2002, "name": "Vestidos", "url": "/mujer/ropa/vestidos" },
+            { "id": 2003, "name": "Faldas", "url": "/mujer/ropa/faldas" },
+            { "id": 2004, "name": "Pantalones", "url": "/mujer/ropa/pantalones" },
+            { "id": 2005, "name": "Chaquetas", "url": "/mujer/ropa/chaquetas" }
+          ]
+        },
+        {
+          "id": 202,
+          "name": "Calzado",
+          "url": "/mujer/calzado",
+          "items": [
+            { "id": 2006, "name": "Tacones", "url": "/mujer/calzado/tacones" },
+            { "id": 2007, "name": "Zapatillas", "url": "/mujer/calzado/zapatillas" },
+            { "id": 2008, "name": "Botas", "url": "/mujer/calzado/botas" },
+            { "id": 2009, "name": "Sandalias", "url": "/mujer/calzado/sandalias" }
+          ]
+        },
+        {
+          "id": 203,
+          "name": "Accesorios",
+          "url": "/mujer/accesorios",
+          "items": [
+            { "id": 2010, "name": "Bolsos", "url": "/mujer/accesorios/bolsos" },
+            { "id": 2011, "name": "Joyería", "url": "/mujer/accesorios/joyeria" },
+            { "id": 2012, "name": "Bufandas", "url": "/mujer/accesorios/bufandas" },
+            { "id": 2013, "name": "Sombreros", "url": "/mujer/accesorios/sombreros" }
+          ]
+        }
+      ]
+    }
+  ],
+  "bannerText": "ENVÍO GRATIS EN PEDIDOS SUPERIORES A $99.900 | DEVOLUCIONES GRATIS"
+}

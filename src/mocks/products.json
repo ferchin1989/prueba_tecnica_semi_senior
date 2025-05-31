@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "brand": "Malva",
+      "title": "Blusa Manga Corta Estampada",
+      "price": 89900,
+      "image": "/images/products/blusa-estampada.jpg",
+      "tags": ["Nuevo", "Descuento"]
+    },
+    {
+      "id": 2,
+      "brand": "Malva",
+      "title": "Vestido Midi Floral",
+      "price": 129900,
+      "image": "/images/products/vestido-floral.jpg",
+      "tags": ["Destacado"]
+    },
+    {
+      "id": 3,
+      "brand": "Malva",
+      "title": "Pantalón Recto de Lino",
+      "price": 99900,
+      "image": "/images/products/pantalon-lino.jpg",
+      "tags": ["Nuevo"]
+    },
+    {
+      "id": 4,
+      "brand": "Malva",
+      "title": "Chaqueta Denim Oversize",
+      "price": 159900,
+      "image": "/images/products/chaqueta-denim.jpg",
+      "tags": ["Exclusivo"]
+    },
+    {
+      "id": 5,
+      "brand": "Malva",
+      "title": "Falda Plisada Midi",
+      "price": 79900,
+      "image": "/images/products/falda-plisada.jpg",
+      "tags": ["Descuento", "Último"]
+    },
+    {
+      "id": 6,
+      "brand": "Malva",
+      "title": "Blusa Satinada Manga Larga",
+      "price": 109900,
+      "image": "/images/products/blusa-satinada.jpg",
+      "tags": ["Nuevo"]
+    },
+    {
+      "id": 7,
+      "brand": "Malva",
+      "title": "Jeans Wide Leg",
+      "price": 119900,
+      "image": "/images/products/jeans-wide.jpg",
+      "tags": ["Tendencia"]
+    },
+    {
+      "id": 8,
+      "brand": "Malva",
+      "title": "Camiseta Básica Algodón",
+      "price": 49900,
+      "image": "/images/products/camiseta-basica.jpg",
+      "tags": ["Básico"]
+    }
+  ]
+}

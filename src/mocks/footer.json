@@ -1,0 +1,28 @@
+{
+  "socialMedia": [
+    { "id": 1, "name": "Facebook", "url": "https://facebook.com", "icon": "facebook" },
+    { "id": 2, "name": "Instagram", "url": "https://instagram.com", "icon": "instagram" },
+    { "id": 3, "name": "Twitter", "url": "https://twitter.com", "icon": "twitter" },
+    { "id": 4, "name": "YouTube", "url": "https://youtube.com", "icon": "youtube" }
+  ],
+  "customerService": [
+    { "id": 1, "name": "Preguntas frecuentes", "url": "/preguntas-frecuentes" },
+    { "id": 2, "name": "Cambios y devoluciones", "url": "/cambios-devoluciones" },
+    { "id": 3, "name": "Política de envíos", "url": "/politica-envios" },
+    { "id": 4, "name": "Seguimiento de pedido", "url": "/seguimiento-pedido" },
+    { "id": 5, "name": "Contacto", "url": "/contacto" }
+  ],
+  "aboutUs": [
+    { "id": 1, "name": "Nuestra historia", "url": "/nuestra-historia" },
+    { "id": 2, "name": "Nuestras tiendas", "url": "/nuestras-tiendas" },
+    { "id": 3, "name": "Responsabilidad social", "url": "/responsabilidad-social" },
+    { "id": 4, "name": "Trabaja con nosotros", "url": "/trabaja-con-nosotros" }
+  ],
+  "legalInfo": [
+    { "id": 1, "name": "Política de privacidad", "url": "/politica-privacidad" },
+    { "id": 2, "name": "Términos y condiciones", "url": "/terminos-condiciones" },
+    { "id": 3, "name": "Política de cookies", "url": "/politica-cookies" },
+    { "id": 4, "name": "SIC", "url": "/sic" }
+  ],
+  "copyright": "© 2025 Malva. Todos los derechos reservados."
+}
