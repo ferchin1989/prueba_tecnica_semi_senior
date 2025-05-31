@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../../styles/Header.module.css';
 import { MenuItem } from '../../types';
 import { getMenuItems } from '../../services/menuService';
@@ -11,6 +11,7 @@ import useCartStore from '../../store/useCartStore';
  * Implementa la funcionalidad de scroll para mostrar/ocultar el header
  */
 const Header: React.FC = () => {
+  const navigate = useNavigate();
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [bannerText, setBannerText] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,6 +50,12 @@ const Header: React.FC = () => {
   // Cambiar entre pestañas de Mujer y Hombre
   const changeTab = (tab: string) => {
     setActiveTab(tab);
+  };
+  
+  // Navegar a página y cerrar menú móvil
+  const navigateAndClose = (path: string) => {
+    navigate(path);
+    toggleMobileMenu();
   };
 
   return (
@@ -139,13 +146,19 @@ const Header: React.FC = () => {
         <div className={styles.mobileTabs}>
           <button 
             className={activeTab === 'mujer' ? styles.mobileTabActive : styles.mobileTab}
-            onClick={() => changeTab('mujer')}
+            onClick={() => {
+              changeTab('mujer');
+              // No cerramos el menú aquí para permitir ver las opciones
+            }}
           >
             Mujer
           </button>
           <button 
             className={activeTab === 'hombre' ? styles.mobileTabActive : styles.mobileTab}
-            onClick={() => changeTab('hombre')}
+            onClick={() => {
+              changeTab('hombre');
+              // No cerramos el menú aquí para permitir ver las opciones
+            }}
           >
             Hombre
           </button>
@@ -161,13 +174,19 @@ const Header: React.FC = () => {
         {activeTab === 'mujer' && (
           <ul className={styles.mobileNavLinks}>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/">Ir a Inicio</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/')}
+              >
+                <span>Ir a Inicio</span>
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/mujer/new">New in</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/mujer')}
+              >
+                <span>Ver todo Mujer</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -184,8 +203,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/mujer/malva-edition">Malva Edition</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/mujer/malva-edition')}
+              >
+                <span>Malva Edition</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -202,8 +224,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/mujer/ropa">Ropa</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/mujer/ropa')}
+              >
+                <span>Ropa</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -220,8 +245,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/mujer/calzado">Calzado</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/mujer/calzado')}
+              >
+                <span>Calzado</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -238,8 +266,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/mujer/disenadores">Diseñadores</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/mujer/accesorios')}
+              >
+                <span>Accesorios</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -256,8 +287,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/mujer/accesorios">Accesorios</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/mujer/joyeria')}
+              >
+                <span>Joyería</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -274,26 +308,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/mujer/joyeria">Joyería</Link>
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="#666" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </li>
-            <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/mujer/black-days">Black Days</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/mujer/black-days')}
+              >
+                <span>Black Days</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -315,13 +334,19 @@ const Header: React.FC = () => {
         {activeTab === 'hombre' && (
           <ul className={styles.mobileNavLinks}>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/">Ir a Inicio</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/')}
+              >
+                <span>Ir a Inicio</span>
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/hombre/new">New in Hombre</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/hombre')}
+              >
+                <span>Ver todo Hombre</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -338,8 +363,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/hombre/ropa">Ropa Hombre</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/hombre/ropa')}
+              >
+                <span>Ropa Hombre</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -356,8 +384,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/hombre/calzado">Calzado Hombre</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/hombre/calzado')}
+              >
+                <span>Calzado Hombre</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -374,8 +405,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/hombre/accesorios">Accesorios Hombre</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/hombre/accesorios')}
+              >
+                <span>Accesorios Hombre</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -392,8 +426,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/hombre/black-days">Black Days Hombre</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/hombre/black-days')}
+              >
+                <span>Black Days Hombre</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -415,13 +452,19 @@ const Header: React.FC = () => {
         {activeTab === 'brand' && (
           <ul className={styles.mobileNavLinks}>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/">Ir a Inicio</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/')}
+              >
+                <span>Ir a Inicio</span>
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/brands/luxury">Marcas de Lujo</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/brands/luxury')}
+              >
+                <span>Marcas de Lujo</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
@@ -438,26 +481,11 @@ const Header: React.FC = () => {
               </div>
             </li>
             <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/brands/contemporary">Marcas Contemporáneas</Link>
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="#666" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </li>
-            <li>
-              <div className={styles.mobileNavLink}>
-                <Link to="/brands/new">Nuevas Marcas</Link>
+              <div 
+                className={styles.mobileNavLink}
+                onClick={() => navigateAndClose('/brands/new')}
+              >
+                <span>Nuevas Marcas</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   width="16" 
