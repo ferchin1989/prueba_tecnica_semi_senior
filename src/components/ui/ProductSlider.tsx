@@ -11,6 +11,11 @@ import useCartStore from '../../store/useCartStore';
 import mujer1 from '../../assets/images/mujeres/mujer 1.webp';
 import mujer2 from '../../assets/images/mujeres/mujer 2.webp';
 import mujer3 from '../../assets/images/mujeres/mujer 3.webp';
+import mujer4 from '../../assets/images/mujeres/mujer 4.webp';
+import mujer5 from '../../assets/images/mujeres/mujer 5.webp';
+import mujer6 from '../../assets/images/mujeres/mujer 6.webp';
+import mujer7 from '../../assets/images/mujeres/mujer 7.webp';
+import mujer8 from '../../assets/images/mujeres/mujer 8.webp';
 
 /**
  * Componente ProductSlider que muestra un carrusel de productos
@@ -165,6 +170,81 @@ const ProductSlider: React.FC = () => {
             </div>
           </div>
           
+          <div className={styles.productCard}>
+            <div className={styles.productImageContainer}>
+              <img 
+                src={mujer4} 
+                alt="Sports Bra Pro" 
+                className={styles.productImage}
+              />
+            </div>
+            <div className={styles.productInfo}>
+              <div className={styles.productBrand}>GLEE</div>
+              <h3 className={styles.productTitle}>Sports Bra Pro</h3>
+              <div className={styles.productPrice}>$159.990</div>
+            </div>
+          </div>
+
+          <div className={styles.productCard}>
+            <div className={styles.productImageContainer}>
+              <img 
+                src={mujer5} 
+                alt="Yoga Pants Flex" 
+                className={styles.productImage}
+              />
+            </div>
+            <div className={styles.productInfo}>
+              <div className={styles.productBrand}>GLEE</div>
+              <h3 className={styles.productTitle}>Yoga Pants Flex</h3>
+              <div className={styles.productPrice}>$189.990</div>
+            </div>
+          </div>
+
+          <div className={styles.productCard}>
+            <div className={styles.productImageContainer}>
+              <img 
+                src={mujer6} 
+                alt="Crop Top Active" 
+                className={styles.productImage}
+              />
+            </div>
+            <div className={styles.productInfo}>
+              <div className={styles.productBrand}>GLEE</div>
+              <h3 className={styles.productTitle}>Crop Top Active</h3>
+              <div className={styles.productPrice}>$149.990</div>
+            </div>
+          </div>
+
+          <div className={styles.productCard}>
+            <div className={styles.productImageContainer}>
+              <img 
+                src={mujer7} 
+                alt="Running Shorts Pro" 
+                className={styles.productImage}
+              />
+            </div>
+            <div className={styles.productInfo}>
+              <div className={styles.productBrand}>GLEE</div>
+              <h3 className={styles.productTitle}>Running Shorts Pro</h3>
+              <div className={styles.productPrice}>$169.990</div>
+            </div>
+          </div>
+
+          <div className={styles.productCard}>
+            <div className={styles.productImageContainer}>
+              <img 
+                src={mujer8} 
+                alt="Training Tank Top" 
+                className={styles.productImage}
+              />
+            </div>
+            <div className={styles.productInfo}>
+              <div className={styles.productBrand}>GLEE</div>
+              <h3 className={styles.productTitle}>Training Tank Top</h3>
+              <div className={styles.productPrice}>$139.990</div>
+            </div>
+          </div>
+
           <div className={styles.productCard}>
             <div className={styles.productImageContainer}>
               <img 
