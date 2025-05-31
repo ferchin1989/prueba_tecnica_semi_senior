@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -25,6 +26,7 @@ const ProductSlider: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const sliderRef = useRef<Slider>(null);
   const addToCart = useCartStore(state => state.addToCart);
+  const navigate = useNavigate();
 
   // Cargar productos
   useEffect(() => {
@@ -97,6 +99,11 @@ const ProductSlider: React.FC = () => {
     addToCart(product);
   };
 
+  // Navegar a la página de detalles del producto
+  const navigateToProductDetail = (productId: number) => {
+    navigate(`/producto/${productId}`);
+  };
+
   return (
     <section className={styles.sliderSection}>
       <div className="container">
@@ -125,22 +132,28 @@ const ProductSlider: React.FC = () => {
         </div>
 
         <Slider ref={sliderRef} {...settings}>
-          <div className={styles.productCard}>
+          <div 
+            className={styles.productCard}
+            onClick={() => navigateToProductDetail(1)}
+          >
             <div className={styles.productImageContainer}>
               <img 
                 src={mujer1} 
-                alt="Top Mat" 
+                alt="Top Mist" 
                 className={styles.productImage}
               />
             </div>
             <div className={styles.productInfo}>
               <div className={styles.productBrand}>GLEE</div>
-              <h3 className={styles.productTitle}>Top Mat</h3>
+              <h3 className={styles.productTitle}>Top Mist</h3>
               <div className={styles.productPrice}>$199.990</div>
             </div>
           </div>
           
-          <div className={styles.productCard}>
+          <div 
+            className={styles.productCard}
+            onClick={() => navigateToProductDetail(2)}
+          >
             <div className={styles.productImageContainer}>
               <img 
                 src={mujer2} 
@@ -155,7 +168,10 @@ const ProductSlider: React.FC = () => {
             </div>
           </div>
           
-          <div className={styles.productCard}>
+          <div 
+            className={styles.productCard}
+            onClick={() => navigateToProductDetail(3)}
+          >
             <div className={styles.productImageContainer}>
               <img 
                 src={mujer3} 
@@ -170,7 +186,10 @@ const ProductSlider: React.FC = () => {
             </div>
           </div>
           
-          <div className={styles.productCard}>
+          <div 
+            className={styles.productCard}
+            onClick={() => navigateToProductDetail(4)}
+          >
             <div className={styles.productImageContainer}>
               <img 
                 src={mujer4} 
@@ -185,7 +204,10 @@ const ProductSlider: React.FC = () => {
             </div>
           </div>
 
-          <div className={styles.productCard}>
+          <div 
+            className={styles.productCard}
+            onClick={() => navigateToProductDetail(5)}
+          >
             <div className={styles.productImageContainer}>
               <img 
                 src={mujer5} 
@@ -200,7 +222,10 @@ const ProductSlider: React.FC = () => {
             </div>
           </div>
 
-          <div className={styles.productCard}>
+          <div 
+            className={styles.productCard}
+            onClick={() => navigateToProductDetail(6)}
+          >
             <div className={styles.productImageContainer}>
               <img 
                 src={mujer6} 
@@ -215,7 +240,10 @@ const ProductSlider: React.FC = () => {
             </div>
           </div>
 
-          <div className={styles.productCard}>
+          <div 
+            className={styles.productCard}
+            onClick={() => navigateToProductDetail(7)}
+          >
             <div className={styles.productImageContainer}>
               <img 
                 src={mujer7} 
@@ -230,7 +258,10 @@ const ProductSlider: React.FC = () => {
             </div>
           </div>
 
-          <div className={styles.productCard}>
+          <div 
+            className={styles.productCard}
+            onClick={() => navigateToProductDetail(8)}
+          >
             <div className={styles.productImageContainer}>
               <img 
                 src={mujer8} 
@@ -245,7 +276,10 @@ const ProductSlider: React.FC = () => {
             </div>
           </div>
 
-          <div className={styles.productCard}>
+          <div 
+            className={styles.productCard}
+            onClick={() => navigateToProductDetail(9)}
+          >
             <div className={styles.productImageContainer}>
               <img 
                 src={mujer1} 

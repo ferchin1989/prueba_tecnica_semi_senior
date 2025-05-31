@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/globals.css';
 import Home from './pages/Home';
+import ProductDetail from './pages/ProductDetail';
 
 /**
  * Componente principal de la aplicación
@@ -12,7 +13,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* Aquí se pueden agregar más rutas según sea necesario */}
+        <Route path="/producto/:id" element={<ProductDetail />} />
+        <Route path="/mujer" element={<Home />} />
+        <Route path="/hombre" element={<Home />} />
       </Routes>
     </Router>
   );

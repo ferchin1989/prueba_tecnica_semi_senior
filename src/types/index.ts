@@ -49,6 +49,12 @@ export interface Product {
   price: number;
   image: string;
   tags: string[];
+  colors?: string[];
+  sizes?: string[];
+  description?: string;
+  isNew?: boolean;
+  images?: string[];
+  stock?: number;
 }
 
 // Tipo para el carrito
