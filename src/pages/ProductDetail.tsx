@@ -6,6 +6,28 @@ import { Product } from '../types';
 import { getProducts } from '../services/productService';
 import useCartStore from '../store/useCartStore';
 
+// Importar imágenes de productos
+import mujer1 from '../assets/images/mujeres/mujer 1.webp';
+import mujer2 from '../assets/images/mujeres/mujer 2.webp';
+import mujer3 from '../assets/images/mujeres/mujer 3.webp';
+import mujer4 from '../assets/images/mujeres/mujer 4.webp';
+import mujer5 from '../assets/images/mujeres/mujer 5.webp';
+import mujer6 from '../assets/images/mujeres/mujer 6.webp';
+import mujer7 from '../assets/images/mujeres/mujer 7.webp';
+import mujer8 from '../assets/images/mujeres/mujer 8.webp';
+
+// Mapa de imágenes para asociar las rutas con las importaciones
+const imageMap: Record<string, string> = {
+  '../../assets/images/mujeres/mujer 1.webp': mujer1,
+  '../../assets/images/mujeres/mujer 2.webp': mujer2,
+  '../../assets/images/mujeres/mujer 3.webp': mujer3,
+  '../../assets/images/mujeres/mujer 4.webp': mujer4,
+  '../../assets/images/mujeres/mujer 5.webp': mujer5,
+  '../../assets/images/mujeres/mujer 6.webp': mujer6,
+  '../../assets/images/mujeres/mujer 7.webp': mujer7,
+  '../../assets/images/mujeres/mujer 8.webp': mujer8
+};
+
 /**
  * Página de detalle de producto que muestra información completa de un producto
  * Permite seleccionar talla, color y añadir al carrito
@@ -95,7 +117,11 @@ const ProductDetail: React.FC = () => {
             {/* Columna de imagen del producto */}
             <div className={styles.productImageColumn}>
               <div className={styles.mainImage}>
-                <img src={product.image} alt={product.title} />
+                <img 
+                  src={imageMap[product.image] || product.image} 
+                  alt={product.title} 
+                  className={styles.productImg}
+                />
               </div>
             </div>
             
