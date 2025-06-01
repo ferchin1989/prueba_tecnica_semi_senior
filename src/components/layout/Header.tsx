@@ -6,6 +6,7 @@ import { getMenuItems } from '../../services/menuService';
 import useScrollDirection from '../../hooks/useScrollDirection';
 import useCartStore from '../../store/useCartStore';
 import CartDropdown from '../ui/CartDropdown';
+import malvaLogo from '../../assets/images/iconos/malva.png';
 
 /**
  * Componente Header que incluye banner superior, logo, navegación y menú móvil
@@ -94,6 +95,7 @@ const Header: React.FC = () => {
             <div className={styles.logo}>
               <Link to="/">
                 <span className={styles.logoText}>MALVA</span>
+                <span className={styles.logoSubtext}>DEPARTMENT STORE</span>
               </Link>
             </div>
 
