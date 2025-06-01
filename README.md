@@ -131,42 +131,53 @@ src/
 
 ## Despliegue en Firebase Hosting
 
-Sigue estos pasos para desplegar la aplicación en Firebase Hosting:
+La aplicación ya está desplegada en Firebase Hosting y disponible en la siguiente URL:
 
-1. **Instalar Firebase CLI**:
-   ```
-   npm install -g firebase-tools
-   ```
-   Si tienes problemas de permisos, puedes usar:
-   ```
-   sudo npm install -g firebase-tools
-   ```
-   O instalarlo localmente:
+**URL pública**: [https://pruebasemisenior.web.app](https://pruebasemisenior.web.app)
+
+Si deseas replicar este despliegue o actualizarlo, sigue estos pasos:
+
+1. **Instalar Firebase Tools localmente**:
    ```
    npm install firebase-tools --save-dev
    ```
 
-2. **Iniciar sesión en Firebase**:
+2. **Verificar los proyectos disponibles**:
    ```
-   firebase login
+   npx firebase projects:list
    ```
-   O si lo instalaste localmente:
-   ```
-   npx firebase login
-   ```
+   Esto mostrará todos tus proyectos de Firebase. Para este proyecto, usamos `pruebasemisenior`.
 
-3. **Inicializar Firebase en tu proyecto**:
+3. **Configurar los archivos necesarios**:
+   
+   Archivo `.firebaserc`:
+   ```json
+   {
+     "projects": {
+       "default": "pruebasemisenior"
+     }
+   }
    ```
-   firebase init
+   
+   Archivo `firebase.json`:
+   ```json
+   {
+     "hosting": {
+       "public": "build",
+       "ignore": [
+         "firebase.json",
+         "**/.*",
+         "**/node_modules/**"
+       ],
+       "rewrites": [
+         {
+           "source": "**",
+           "destination": "/index.html"
+         }
+       ]
+     }
+   }
    ```
-   O con instalación local:
-   ```
-   npx firebase init
-   ```
-   - Selecciona "Hosting"
-   - Selecciona "Use an existing project" y elige tu proyecto de Firebase
-   - Especifica "build" como directorio público
-   - Configura como SPA (Single Page Application): Responde "Yes" a la pregunta sobre reescribir todas las URLs a /index.html
 
 4. **Construir la aplicación para producción**:
    ```
@@ -175,12 +186,8 @@ Sigue estos pasos para desplegar la aplicación en Firebase Hosting:
 
 5. **Desplegar en Firebase**:
    ```
-   firebase deploy
-   ```
-   O con instalación local:
-   ```
-   npx firebase deploy
+   npx firebase deploy --only hosting
    ```
 
-6. **Visitar el sitio desplegado**:
-   Una vez completado el despliegue, Firebase te proporcionará una URL donde tu aplicación está disponible públicamente.
+6. **Verificar el despliegue**:
+   Una vez completado, puedes visitar la URL proporcionada por Firebase (https://pruebasemisenior.web.app) para ver tu aplicación en funcionamiento.
