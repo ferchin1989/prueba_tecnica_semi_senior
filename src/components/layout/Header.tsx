@@ -75,36 +75,41 @@ const Header: React.FC = () => {
       {/* Main header */}
       <div className={styles.mainHeader}>
         <div className="container flex justify-between items-center w-full">
-          {/* Hamburger menu (mobile) */}
-          <button 
-            className={`${styles.hamburger} ${mobileMenuOpen ? styles.hamburgerActive : ''}`}
-            onClick={toggleMobileMenu}
-            aria-label="Menú"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
+          {/* Left section with hamburger, logo and main nav */}
+          <div className={styles.leftSection}>
+            {/* Hamburger menu (mobile) */}
+            <button 
+              className={`${styles.hamburger} ${mobileMenuOpen ? styles.hamburgerActive : ''}`}
+              onClick={toggleMobileMenu}
+              aria-label="Menú"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
 
-          {/* Logo */}
-          <div className={styles.logo}>
-            <Link to="/">
-              <span className={styles.logoText}>MALVA</span>
-            </Link>
-          </div>
+            {/* Logo */}
+            <div className={styles.logo}>
+              <Link to="/">
+                <span className={styles.logoText}>MALVA</span>
+              </Link>
+            </div>
 
-          {/* Desktop navigation */}
-          <nav className={styles.navContainer}>
-            <ul className={styles.navLinks}>
-              <li className={styles.navLink}>
+            {/* Main navigation links */}
+            <ul className={styles.mainNavLinks}>
+              <li className={styles.mainNavLink}>
                 <Link to="/mujer">Mujer</Link>
               </li>
-              <li className={styles.navLink}>
+              <li className={styles.mainNavLink}>
                 <Link to="/hombre">Hombre</Link>
               </li>
             </ul>
+          </div>
+
+          {/* Desktop navigation - right side */}
+          <nav className={styles.navContainer}>
 
             {/* Icons */}
             <div className={styles.icons}>
