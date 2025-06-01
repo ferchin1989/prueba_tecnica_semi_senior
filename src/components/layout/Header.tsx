@@ -5,6 +5,7 @@ import { MenuItem } from '../../types';
 import { getMenuItems } from '../../services/menuService';
 import useScrollDirection from '../../hooks/useScrollDirection';
 import useCartStore from '../../store/useCartStore';
+import CartDropdown from '../ui/CartDropdown';
 
 /**
  * Componente Header que incluye banner superior, logo, navegación y menú móvil
@@ -17,6 +18,7 @@ const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState('mujer'); // Estado para la pestaña activa
+  const [cartDropdownOpen, setCartDropdownOpen] = useState(false);
   const { scrollDirection, isTop } = useScrollDirection();
   const cartItems = useCartStore(state => state.cart.totalItems);
 
@@ -59,9 +61,10 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header 
-      className={`${styles.header} ${scrollDirection === 'down' && !isTop ? styles.headerHidden : ''}`}
-    >
+    <>
+      <header 
+        className={`${styles.header} ${scrollDirection === 'down' && !isTop ? styles.headerHidden : ''}`}
+      >
       {/* Banner strip */}
       <div className={styles.bannerStrip}>
         <div className="container">
@@ -117,14 +120,18 @@ const Header: React.FC = () => {
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
               </button>
-              <button className={styles.iconButton} aria-label="Carrito">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <button 
+                className={styles.iconButton} 
+                aria-label="Carrito"
+                onClick={() => setCartDropdownOpen(true)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="9" cy="21" r="1"></circle>
                   <circle cx="20" cy="21" r="1"></circle>
                   <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                 </svg>
                 {cartItems > 0 && (
-                  <span className={styles.cartCount}>{cartItems}</span>
+                  <span className={styles.cartBadge}>{cartItems}</span>
                 )}
               </button>
             </div>
@@ -510,6 +517,13 @@ const Header: React.FC = () => {
         </div>
       </div>
     </header>
+      
+      {/* Dropdown del carrito */}
+      <CartDropdown 
+        isOpen={cartDropdownOpen} 
+        onClose={() => setCartDropdownOpen(false)} 
+      />
+    </>
   );
 };
 

@@ -91,12 +91,12 @@
   justify-content: center;
 }
 
-.cartCount {
+.cartBadge {
   position: absolute;
   top: -5px;
   right: -5px;
-  background-color: var(--accent);
-  color: var(--secondary);
+  background-color: #ff4d4d;
+  color: white;
   font-size: 10px;
   width: 16px;
   height: 16px;

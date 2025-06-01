@@ -5,6 +5,7 @@ import styles from '../styles/ProductDetail.module.css';
 import { Product } from '../types';
 import { getProducts } from '../services/productService';
 import useCartStore from '../store/useCartStore';
+import CartNotification from '../components/ui/CartNotification';
 
 // Importar imágenes de productos
 import mujer1 from '../assets/images/mujeres/mujer 1.webp';
@@ -38,6 +39,7 @@ const ProductDetail: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<string>('S');
   const [selectedColor, setSelectedColor] = useState<string>('VERDE');
   const [loading, setLoading] = useState<boolean>(true);
+  const [showNotification, setShowNotification] = useState<boolean>(false);
   const addToCart = useCartStore(state => state.addToCart);
 
   useEffect(() => {
@@ -76,8 +78,15 @@ const ProductDetail: React.FC = () => {
         ...product,
         quantity: 1
       } as any); // Usamos type assertion para evitar el error de tipo
-      alert('Producto añadido al carrito');
+      
+      // Mostrar notificación
+      setShowNotification(true);
     }
+  };
+  
+  // Cerrar notificación
+  const handleCloseNotification = () => {
+    setShowNotification(false);
   };
 
   // Formatear precio
@@ -110,8 +119,9 @@ const ProductDetail: React.FC = () => {
   }
 
   return (
-    <Layout>
-      <div className={styles.productDetail}>
+    <>
+      <Layout>
+        <div className={styles.productDetail}>
         <div className="container">
           <div className={styles.productGrid}>
             {/* Columna de imagen del producto */}
@@ -219,7 +229,15 @@ const ProductDetail: React.FC = () => {
           </div>
         </div>
       </div>
-    </Layout>
+      </Layout>
+      
+      {/* Notificación de producto añadido al carrito */}
+      <CartNotification
+        message="Producto añadido correctamente al carrito"
+        isVisible={showNotification}
+        onClose={handleCloseNotification}
+      />
+    </>
   );
 };
 
