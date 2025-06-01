@@ -128,3 +128,59 @@ src/
 - Optimización de imágenes con diferentes tamaños para mobile/desktop
 - Lazy loading para componentes pesados
 - Memoización para prevenir re-renders innecesarios
+
+## Despliegue en Firebase Hosting
+
+Sigue estos pasos para desplegar la aplicación en Firebase Hosting:
+
+1. **Instalar Firebase CLI**:
+   ```
+   npm install -g firebase-tools
+   ```
+   Si tienes problemas de permisos, puedes usar:
+   ```
+   sudo npm install -g firebase-tools
+   ```
+   O instalarlo localmente:
+   ```
+   npm install firebase-tools --save-dev
+   ```
+
+2. **Iniciar sesión en Firebase**:
+   ```
+   firebase login
+   ```
+   O si lo instalaste localmente:
+   ```
+   npx firebase login
+   ```
+
+3. **Inicializar Firebase en tu proyecto**:
+   ```
+   firebase init
+   ```
+   O con instalación local:
+   ```
+   npx firebase init
+   ```
+   - Selecciona "Hosting"
+   - Selecciona "Use an existing project" y elige tu proyecto de Firebase
+   - Especifica "build" como directorio público
+   - Configura como SPA (Single Page Application): Responde "Yes" a la pregunta sobre reescribir todas las URLs a /index.html
+
+4. **Construir la aplicación para producción**:
+   ```
+   npm run build
+   ```
+
+5. **Desplegar en Firebase**:
+   ```
+   firebase deploy
+   ```
+   O con instalación local:
+   ```
+   npx firebase deploy
+   ```
+
+6. **Visitar el sitio desplegado**:
+   Una vez completado el despliegue, Firebase te proporcionará una URL donde tu aplicación está disponible públicamente.
