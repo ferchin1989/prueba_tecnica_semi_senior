@@ -4,6 +4,28 @@ import styles from '../../styles/CartDropdown.module.css';
 import { CartItem } from '../../types';
 import useCartStore from '../../store/useCartStore';
 
+// Importar imágenes de productos
+import mujer1 from '../../assets/images/mujeres/mujer 1.webp';
+import mujer2 from '../../assets/images/mujeres/mujer 2.webp';
+import mujer3 from '../../assets/images/mujeres/mujer 3.webp';
+import mujer4 from '../../assets/images/mujeres/mujer 4.webp';
+import mujer5 from '../../assets/images/mujeres/mujer 5.webp';
+import mujer6 from '../../assets/images/mujeres/mujer 6.webp';
+import mujer7 from '../../assets/images/mujeres/mujer 7.webp';
+import mujer8 from '../../assets/images/mujeres/mujer 8.webp';
+
+// Mapa de imágenes para asociar las rutas con las importaciones
+const imageMap: Record<string, string> = {
+  '../../assets/images/mujeres/mujer 1.webp': mujer1,
+  '../../assets/images/mujeres/mujer 2.webp': mujer2,
+  '../../assets/images/mujeres/mujer 3.webp': mujer3,
+  '../../assets/images/mujeres/mujer 4.webp': mujer4,
+  '../../assets/images/mujeres/mujer 5.webp': mujer5,
+  '../../assets/images/mujeres/mujer 6.webp': mujer6,
+  '../../assets/images/mujeres/mujer 7.webp': mujer7,
+  '../../assets/images/mujeres/mujer 8.webp': mujer8
+};
+
 interface CartDropdownProps {
   isOpen: boolean;
   onClose: () => void;
@@ -55,7 +77,15 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
               {cart.items.map((item: CartItem) => (
                 <div key={item.id} className={styles.cartItem}>
                   <div className={styles.itemImage}>
-                    <img src={item.image} alt={item.title} />
+                    <img 
+                      src={imageMap[item.image] || item.image} 
+                      alt={item.title} 
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = 'https://via.placeholder.com/80x80?text=Imagen+no+disponible';
+                      }}
+                    />
                   </div>
                   <div className={styles.itemDetails}>
                     <div className={styles.itemBrand}>{item.brand}</div>
